@@ -34,7 +34,6 @@
 
     <Window.Resources>
         <RoutedUICommand x:Key="SearchHotKeyDown" Text="SearchHotKeyDown"/>
-
         <cvt:MenuWidthConvert x:Key="MenuWidthConvert"/>
         <cvt:OpcityConvert x:Key="OpcityConvert"/>
         <cvt:IntToCornerRadius x:Key="IntToCornerRadius"/>
@@ -129,8 +128,8 @@
                                HorizontalAlignment="Left"/>
                     </StackPanel>
                     <hc:UniformSpacingPanel HorizontalAlignment="Right">
-                        <Button x:Name="PreviewGuideBtn" Click="PreviewGuideBtn_Click" Margin="0,0,20,0" Content="上一步"/>
-                        <Button x:Name="NextGuideBtn" Click="NextGuideBtn_Click" Margin="0,0,20,0" Content="下一步"/>
+                        <Button Style="{StaticResource MyBtnStyle}" x:Name="PreviewGuideBtn" Click="PreviewGuideBtn_Click" Margin="0,0,20,0" Content="上一步"/>
+                        <Button Style="{StaticResource MyBtnStyle}" x:Name="NextGuideBtn" Click="NextGuideBtn_Click" Margin="0,0,20,0" Content="下一步"/>
                     </hc:UniformSpacingPanel>
                 </Grid>
             </hc:Card.Footer>
@@ -171,8 +170,8 @@
 
 
 
-                    <CheckBox x:Name="ShowBox" Visibility="Hidden" Panel.ZIndex="2"/>
-                    <CheckBox x:Name="HideBox" Visibility="Hidden" Panel.ZIndex="2"/>
+                    <CheckBox Style="{StaticResource MyCheckBoxStyle}" x:Name="ShowBox" Visibility="Hidden" Panel.ZIndex="2"/>
+                    <CheckBox Style="{StaticResource MyCheckBoxStyle}" x:Name="HideBox" Visibility="Hidden" Panel.ZIndex="2"/>
 
                     <StackPanel HorizontalAlignment="Right" Panel.ZIndex="99" hc:Growl.GrowlParent="False" hc:Growl.Token="MainWindowGrowl" Grid.Column="1" Grid.Row="1"/>
                     <StackPanel HorizontalAlignment="Center" Panel.ZIndex="99" hc:Growl.GrowlParent="False" hc:Growl.Token="MainWindowAskGrowl" Grid.Column="1" Grid.Row="1"/>
@@ -181,7 +180,14 @@
                         <DockPanel.Background>
                             <SolidColorBrush Opacity="0.01"/>
                         </DockPanel.Background>
-                        <Image Visibility="{Binding AppConfig.TitleLogoVisible}" Source="/Resource/Image/TitleLogo.png" RenderOptions.BitmapScalingMode="HighQuality" Margin="10,0,0,0" Width="200" Height="30" HorizontalAlignment="Left"/>
+                        <Image Visibility="{Binding AppConfig.TitleLogoVisible}" 
+                               Source="/Resource/Image/TitleLogo.png" 
+                               RenderOptions.BitmapScalingMode="HighQuality" 
+                               Margin="10,0,0,0" 
+                               Width="200" 
+                               Height="30" 
+                               Opacity="0.8"
+                               HorizontalAlignment="Left"/>
                     </DockPanel>
 
                     <DockPanel Grid.Row="0" Grid.Column="2" MouseDown="DragMove">
@@ -266,6 +272,7 @@
                              FontSize="16"
                              BorderThickness="0"
                              TextChanged="SearchBox_TextChanged"
+                             Style="{StaticResource MyTextBoxStyle}"
                              >
                         <TextBox.Background>
                             <SolidColorBrush Color="White" Opacity="0.5" />
